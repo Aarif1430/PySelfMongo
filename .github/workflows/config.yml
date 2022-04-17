@@ -1,0 +1,30 @@
+name: Deploy to PyPI and GitHub
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: actions/setup-python@v2
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+
+      - name: Build and Upload to PyPI
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: | 
+          poetry build
+          poetry publish

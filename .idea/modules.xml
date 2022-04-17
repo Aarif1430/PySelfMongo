@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../Wealth4We/.idea/Wealth4We.iml" filepath="$PROJECT_DIR$/../../Wealth4We/.idea/Wealth4We.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mongo_client.iml" filepath="$PROJECT_DIR$/.idea/mongo_client.iml" />
+    </modules>
+  </component>
+</project>

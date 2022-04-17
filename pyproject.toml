@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mongo_client"
+version = "0.1.0"
+description = ""
+authors = ["Aarif1430 <malikarif13@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pymongo = "^4.1.0"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.18.1"
+pytest = "^7.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
