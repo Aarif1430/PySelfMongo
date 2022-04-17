@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "mongo_client"
-version = "0.1.0"
+name = "self-mongo"
+version = "0.1.1"
 description = ""
 authors = ["Aarif1430 <malikarif13@gmail.com>"]
 
