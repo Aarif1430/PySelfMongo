@@ -34,9 +34,7 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
 
       - name: Build and Upload to PyPI
-        env:
-          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: | 
+          poetry config http-basic.pypi "__token__" "${{ secrets.PYPI_TOKEN }}"
           poetry build
           poetry publish
