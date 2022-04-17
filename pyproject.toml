@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "self-mongo"
+name = "self_mongo"
 version = "0.1.1"
 description = ""
 authors = ["Aarif1430 <malikarif13@gmail.com>"]

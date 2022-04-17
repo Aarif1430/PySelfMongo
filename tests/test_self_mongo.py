@@ -1,7 +1,7 @@
 from unittest.mock import patch, MagicMock
 
-from mongo_client import __version__
-from mongo_client.self_mongo import MongoClient, MongoSingletonClient
+from self_mongo import __version__
+from self_mongo.self_mongo import MongoClient, MongoSingletonClient
 import unittest
 
 
@@ -10,7 +10,7 @@ def test_version():
 
 
 class MongoSingletonClientTest(unittest.TestCase):
-    @patch("mongo_client.mongo.MongoClient")
+    @patch("self_mongo.mongo.MongoClient")
     def test_singleton(self, mock_client):
         client = MongoSingletonClient()
         client.connect()
@@ -19,7 +19,7 @@ class MongoSingletonClientTest(unittest.TestCase):
         new_client.connect()
         self.assertEqual(client, new_client)
 
-    @patch("mongo_client.mongo.MongoClient")
+    @patch("self_mongo.mongo.MongoClient")
     def test_singleton_with_args(self, mock_client):
         client = MongoSingletonClient(
             db_name="test_db", username="test_user", password="test_pass"
@@ -34,7 +34,7 @@ class MongoSingletonClientTest(unittest.TestCase):
         new_client.connect()
         self.assertEqual(client, new_client)
 
-    @patch("mongo_client.mongo.MongoClient")
+    @patch("self_mongo.mongo.MongoClient")
     def test_set_db_name(self, mock_client):
         client = MongoSingletonClient()
         client.set_db_name("test_db")
@@ -48,7 +48,7 @@ class MongoSingletonClientTest(unittest.TestCase):
         self.assertEqual(client, new_client)
         self.assertEqual(client.db_name, new_client.db_name, "test_db")
 
-    @patch("mongo_client.mongo.MongoClient")
+    @patch("self_mongo.mongo.MongoClient")
     def test_set_username(self, mock_client):
         client = MongoSingletonClient()
         client.set_username("test_user")
@@ -62,7 +62,7 @@ class MongoSingletonClientTest(unittest.TestCase):
         self.assertEqual(client, new_client)
         self.assertEqual(client.username, new_client.username, "test_user")
 
-    @patch("mongo_client.mongo.MongoClient")
+    @patch("self_mongo.mongo.MongoClient")
     def test_set_password(self, mock_client):
         client = MongoSingletonClient()
         client.set_password("test_pass")
