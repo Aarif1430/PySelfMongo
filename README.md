@@ -26,7 +26,8 @@ The host can be an IP address or a hostname. E.g. In case of a hosted mongo serv
 The client can be used as follows:
 
 ```python
-from self_mongo import PySelfMongo
+from py_self_mongo import PySelfMongo
+
 mongo_client = PySelfMongo()
 mongo_client.get_collection('collection_name')
 ```
@@ -34,7 +35,8 @@ mongo_client.get_collection('collection_name')
 2. If no config file is found, the client will try to connect to the localhost with default port 27017. In this case the client can be intialized as follows:
 
 ```python
-from self_mongo import PySelfMongo
+from py_self_mongo import PySelfMongo
+
 mongo_client = PySelfMongo(db_name='db_name', username='user_name', password='password')
 mongo_client.get_collection('collection_name')
 ```
