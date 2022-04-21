@@ -1,7 +1,7 @@
 from unittest.mock import patch, MagicMock
 
 from self_mongo import __version__
-from self_mongo.self_mongo import MongoClient, MongoSingletonClient
+from self_mongo.py_self_mongo import PySelfMongo, MongoSingletonClient
 import unittest
 
 

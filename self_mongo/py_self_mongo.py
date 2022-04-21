@@ -8,6 +8,7 @@ from pymongo.cursor import Cursor
 from pymongo.database import Database
 from yaml import safe_load
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -18,7 +19,7 @@ class MongoSingletonClient(object):
 
     __instance = None
     try:
-        __config_file = Path(__file__).parent.parent / ".mongo_config_dev.yaml"
+        __config_file = Path(__file__).parent.parent / ".mongo_config.yaml"
         cfg = safe_load(open(__config_file, "r"))
         host = cfg["mongo"]["host"]
         port = cfg["mongo"]["port"]
@@ -65,7 +66,7 @@ class MongoSingletonClient(object):
         cls.password = password
 
 
-class SelfMongo(object):
+class PySelfMongo(object):
     def __init__(
         self,
         user_name: Optional[str] = None,
@@ -100,6 +101,19 @@ class SelfMongo(object):
         self, collection: str, field: str, value: Any
     ) -> Cursor[dict[str, Any]]:
         return self.get_collection(collection).find({field: value})
+
+    def get_document_by_query(self, collection: str, query: Dict[str, Any]) -> Cursor[dict[str, Any]]:
+        return self.get_collection(collection).find(query)
+
+    def get_document_by_query_with_projection(self, collection: str, query: Dict[str, Any], projection: Dict[str, Any]) -> Cursor[dict[str, Any]]:
+        """
+        Get document by query with projection.
+        :param collection: Collection name.
+        :param query: Query to find document.
+        :param projection: Projection to get e.g {"_id": 0, "name": 1}
+        :return:
+        """
+        return self.get_collection(collection).find(query, projection)
 
     def get_all_document_generators(
         self, collection: str, filters: List[Dict[str, Any]]
@@ -143,5 +157,5 @@ class SelfMongo(object):
 
 
 if __name__ == "__main__":
-    db_client = SelfMongo()
+    db_client = PySelfMongo()
     db = db_client.get_collection("transactions_dev")

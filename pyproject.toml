@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "self_mongo"
-version = "0.1.3"
-description = "A self mongo client for the [MongoDB][mongo] database is a thin client that connects to a mongo server and provides a simple interface to the database. A client is written as a singleton to make sure that only one connection is open at a time. The connection timeout is taken care by checking the server info every time a request is made. A new connection is made if the server info is not available or the connection has timed out."
+name = "PySelfMongo"
+version = "0.1.0"
+description = "A PySelfMongo client for the [MongoDB][mongo] database is a thin client that connects to a mongo server and provides a simple interface to the database. A client is written as a singleton to make sure that only one connection is open at a time. The connection timeout is taken care by checking the server info every time a request is made. A new connection is made if the server info is not available or the connection has timed out."
 authors = ["Aarif1430 <malikarif13@gmail.com>"]
 readme = "README.md"
 license = "MIT"
-homepage = "https://github.com/Aarif1430/self_mongo"
+homepage = "https://github.com/Aarif1430/PySelfMongo"
 keywords = ["mongo", "mongodb", "client", "self", "singleton", "connection", "timeout"]
 
 [tool.poetry.dependencies]
